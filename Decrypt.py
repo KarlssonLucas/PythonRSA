@@ -3,15 +3,14 @@
 ##
 
 
-def choosedecryptionkey(d, e, n):
+def choosedecryptionkey(decryptionkey, encryptionkey, n):   # Choosing key to decrypt message
     for i in range(1, n):
-        if (i * e) % n == 1:
-            d = i
-            print(d)
+        if (i * encryptionkey) % n == 1:
+            decryptionkey = i
             break
-    return d
+    return decryptionkey
 
 
-def decryptmessage(encryption, dec, n):
-    en = encryption ** dec % n
+def decryptmessage(encryptedmessage, decryptionkey, n):     # Decrypt the message that you got from encrypting.
+    en = encryptedmessage ** decryptionkey % n
     return en
